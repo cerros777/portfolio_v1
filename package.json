@@ -1,5 +1,6 @@
 {
   "name": "portfolio_v1",
+  "homepage": "https://portfolio-v1-lake-one.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
