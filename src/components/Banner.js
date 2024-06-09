@@ -52,7 +52,10 @@ export const Banner = () => {
                     {({isVisible}) =>
                     <div className={isVisible ? "animate__animated animate__bounce" : ""}>
                     <span className="tagline">Welcome</span>
-                    <h1>{`Hi I'm Daniel, `}<span className="wrap">{text}</span> Developer</h1>
+                    <h1>{`Hi I'm Daniel, `}
+                        <span className="wrap">{text}</span> 
+                         Developer.
+                    </h1>
                     <p>Tech enthusiast and lifelong learner, dedicated to solving challenges with creativity and innovation. Passionate about making a positive impact through technology.</p>
                     <button onClick={() => console.log('connect')}>Let's connect <ArrowRightCircle size={25}></ArrowRightCircle></button>                
                     </div>}
