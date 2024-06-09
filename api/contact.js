@@ -1,20 +1,12 @@
 const express = require("express");
-const path = require("path");
-const router = express.Router();
 const cors = require("cors");
 require('dotenv').config();
 const nodemailer = require("nodemailer");
 
-// server used to send emails
 const app = express();
-app.use(cors(
-  {origin: '*'}
-));
-app.use(express.json());
-app.use("/", router);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(cors({ origin: '*' }));
+app.use(express.json());
 
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
@@ -32,8 +24,7 @@ contactEmail.verify((error) => {
   }
 });
 
-app.post("/contact", (req, res) => {
-  console.log(req.body);
+app.post("/api/contact", (req, res) => {
   const name = req.body.firstName + " " + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
@@ -56,12 +47,4 @@ app.post("/contact", (req, res) => {
   });
 });
 
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server Running on port ${port}`);
-});
+module.exports = app;
