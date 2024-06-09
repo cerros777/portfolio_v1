@@ -75,7 +75,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 p.success {
-	color: green;
+	color: darkgreen;
+  font-size: larger;
+  font-weight: 700;
 }
 
 p.danger {
